@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block css %}
+    .requests__problem{
+        width: 35% !important;
+    }
+    .badge{
+        text-decoration: none;
+    }
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        overflow-x: scroll;
+    }
+    @media (max-width: 768px){
+        .requests__problem{
+            width: 100px !important;
+        }
+    }
+    @media (max-width: 425px){
+        .requests__problem{
+            width: 220px !important;
+        }
+    }
+{% endblock css %}
+{% block body %}
+    <div class="main">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-5">Appointment Details</h4>
+                    
+                    <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sr No.</th>
+                                <th>Doctor</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in appointments reversed %}
+                                <tr>
+                                    <td> {{forloop.counter}} </td>
+                                    <td>{{i.doctor}}</td>
+                                    <td>{{i.time}}</td>
+                                    <td>
+                                        {% if i.status == 'True'%}
+                                            <p class="badge bg-success text-light"> Approved </p>
+                                        {% endif %}
+                                        {% if i.status == 'False' %}
+                                            <p class="badge bg-info text-light"> Pending </p>
+                                        {% endif %}
+                                        {% if i.status == 'No' %}
+                                            <p class="badge bg-danger text-light"> Declined </p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock body %}

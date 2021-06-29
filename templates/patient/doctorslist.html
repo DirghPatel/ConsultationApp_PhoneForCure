@@ -1,0 +1,423 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block activedoctor %} doctorlist {% endblock activedoctor %}
+{% block css %}
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.colbtn{
+    border-color: #137796;
+    color: white;
+}
+.colbtn:hover{
+    background-color: #137796;
+    border-color: #137796;  
+}
+.search:focus{
+    border-color: #137796;
+    box-shadow: 0px 0px 10px -2px #137796;
+}
+p{
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+.navbar{
+    background-color: #ff6f6f;
+}
+.navbar a:hover{
+    color: black;
+}
+.patienthome__cover{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 40px -15px #000473;
+    border: 1px solid white;
+}
+.cover__text1{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 1px;
+}
+.cover__maintext{
+    font-size: 33px;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    border-bottom-width: 3px;
+    padding-right: 0px;
+    width: fit-content;
+    letter-spacing: 1px;
+}
+.cover__button{
+    margin-top: 20px;
+    color: white;
+    border-color: darkblue;
+    background-color: darkblue;
+}
+.cover__button:hover{
+    border-color: darkblue;
+    box-shadow: 2px 2px 20px -10px #000473;
+}
+.cover__main{
+    width: 40%;
+    color: white;
+}
+.cover__image img{
+    border-radius: 50%;
+}
+
+.patienthome__red{
+    position: absolute;
+    height: 225px;
+    background-color: #ff6f6f;
+    width: 100%;
+}
+
+.doctors__list{
+    position: relative;
+    display: flex;
+    height: fit-content;
+    margin: 20px;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.doctor__card{
+    position: relative;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    width: 42%;
+    padding: 10px;
+    border: 1px solid #ffc8c8;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+.doctor__image{
+    margin-right: 15px;
+    border-right: 2px solid darkblue;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+}
+.doctor__information{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.doctor__details{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: fit-content;
+    justify-content: center;
+    padding: 5px;
+}
+.doctor__name{
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-size: 25px;
+    border-bottom: 1px solid black;
+    width: fit-content;
+}
+.doctor__type{
+    font-size: small;
+    margin-bottom: 10px;
+}
+.doctor__experience{
+    margin-bottom: 10px;
+}
+.doctor__listheader{
+    font-weight: 800;
+}
+.doctor__details .doctor__feelist{
+    margin: 0px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+.doctor__phonenumber{
+    margin-top: auto;
+    border: 1px solid #c8c8ff;
+    padding: 7px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    background-color: #c8c8ff;
+    color: #57065d;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+.doctor__phonenumber:hover{
+    background-color: white;
+    color: darkblue;
+    border-color: #ffc8c8;
+}
+.doctor__hospitaladdress{
+    font-size: 0.9rem;
+}
+.doctor__hospital b{
+    font-weight: 600;
+}
+
+.text__doctor{
+    margin: 20px;
+    height: fit-content;
+    position: relative;
+    background-color: #137796;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 30px 25px -25px #383d46;
+
+}
+
+.text__row{
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto auto;
+    grid-row: auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    font-family: 'Baloo Da 2';
+}
+.text__main{
+    text-align: center;
+    font-family: 'Baloo Da 2';
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ffb9c3;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text__column{
+    padding: 5px;
+    border: 1px solid #c8c8ff;
+    border-radius: 10px;
+}
+@media (max-width: 1024px){
+    .doctors__list{
+        flex-direction: column;
+    }
+
+    .doctor__card{
+        width:100%;
+        margin: 10px;
+        padding-left: 30px;
+        padding-right: 10px; 
+    }
+}
+@media (min-width: 770px) and (max-width: 925px){
+    .patienthome__red{
+        height:225px;
+    }
+    .cover__text1{
+        font-size: 18px;
+    }
+    .cover__maintext{
+        font-size: 26px;
+    }
+}
+@media (min-width: 770px) and (max-width: 974px){
+    .cover__maintext{
+        letter-spacing: 0px;
+    }
+}
+@media (max-width:768px){
+    .cover__image{
+        display: none;
+    }
+    .cover__main{
+        width: fit-content;
+    }
+    .patienthome__red{
+        height:240px;
+    }
+}
+@media (max-width:630px){
+    .doctors__list{
+        margin:0px;
+        padding: 3px;
+    }
+    .doctor__card{
+        padding: 10px;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width:505px){
+    .text__row{
+        display: flex;
+        flex-direction: column;
+    }
+    .text__column{
+        width: 250px;
+        text-align: center;
+    }
+}
+@media (max-width:425px){
+    .patienthome__red{
+        height:210px;
+    }
+    .cover__maintext{
+        font-size: 24px;
+    }
+    .cover__text1{
+        font-size: 16px;
+    }
+    .doctor__card{
+        padding: 2px;
+        margin: 5px 0px;
+    }
+    .doctor__details{
+        padding:0px;
+    }
+    .doctor__details .doctor__feelist{
+        letter-spacing: 0px;
+        padding: 0px;
+        padding-left:15px;
+
+    }
+    .doctor__phonenumber{
+        letter-spacing: 0px;
+        padding: 5px 15px;
+    }
+    .doctor__type{
+        margin-bottom: 5px;
+        font-size: x-small;
+    }
+    .doctor__name{
+        font-size:20px;
+    }
+    .doctor__hospital{
+        line-height: 20px;
+    }
+    .doctor__hospital b{
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .doctor__hospitaladdress{
+        font-size: 14px;
+        font-weight: 200;
+    }
+    .doctor__listheader{
+        font-weight: 400;
+    }
+    .doctor__feeonline{
+        font-weight: 200;
+        font-size: 13px;
+    }
+    .doctor__feeclinic{
+        font-weight: 200;
+        font-size: 13px;
+    }
+}
+
+@media (max-width:375px){
+    .doctor__card{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .doctor__phonenumber{
+        top: 0px;
+        width: 100%;
+        text-align: center;
+    }
+    .doctor__contact{
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (max-width:320px){
+    .patienthome__red{
+        height:215px;
+    }
+    .cover__text1{
+        font-size: 16px;
+    }
+    .cover__maintext{
+        font-size: 24px;
+        letter-spacing: 0px;
+    }
+}
+
+.doctorlist{
+    color: black !important;
+}
+{% endblock css %}
+
+
+
+{% block body %}
+{% comment %} {% if user.is_authenticated %} {% endcomment %}
+<div class="patienthome__red"></div>
+
+
+<div class="patienthome__cover">
+    <div class="cover__image">
+        <img src="/static/images/consultation.jpg" height='300px' width="auto">
+    </div>
+    <div class="cover__main col-md-4 p-4 ">
+        <p class="cover__text1">No more doubts,</p>
+        <h1 class="cover__maintext"> Want medicines, <br> Need consultation? </h1>
+        <p class="cover__text1">Consult With Professionals</p>
+        <button class="cover__button btn btn-outline-light" onclick="location.href='/patient/consultation/'"> Consultation</button>
+        <button class="cover__button btn btn-outline-light" onclick="location.href='/patient/appointment/'"> Appointment </button>
+    </div>
+</div>
+<div class="text__doctor">
+    <h3 class="text__main"> Book Appointment With Doctors Or Consult With Call </h3>
+    <div class="text__row">
+        <p class="text__column"> Convenient and Easy </p>
+        <p class="text__column"> 100% Safe Consultations </p>
+        <p class="text__column"> Similar Clinic Experience </p>
+        <p class="text__column"> Digital Prescription </p>
+    </div>
+</div>
+<div class="doctors__list row">
+    {% for doctor in doctors %}
+        <div class="doctor__card bg-light column">
+            <div class=" doctor__information">
+                <img src="/static/images/user.png" class="doctor__image" alt="">
+
+                <div class="doctor__details">
+                    <h3 class="doctor__name">{{doctor.name}}</h3>
+                    <p class="doctor__type small">{{doctor.speciality}} , {{doctor.experience}} years experience</p>
+                    <p class="doctor__hospital"><b>{{doctor.hospitalname}}</b> <span class="doctor__hospitaladdress"> {{doctor.hospitalarea}},{{doctor.hospitalcity}} </span></p>
+                    
+                    <p class="doctor__listheader"> Fees </p>
+                    <ul class="doctor__feelist">
+                        <li class="doctor__feeonline">{{doctor.onlinefees}}₹ Online Consultation. </li>
+                        <li class="doctor__feeclinic">{{doctor.feesatclinic}}₹ At Clinic. </li>
+                    </ul>
+                </div>
+            </div>
+            {% comment %} <div class="doctor__contact"> {% endcomment %}
+                <a href="tel:+91{{doctor.phone}}" class="doctor__phonenumber">Call</a>
+            {% comment %} </div> {% endcomment %}
+        </div>
+    {% endfor %} 
+</div>
+{% comment %} {% else %}
+    <h1>please log in to book appointment</h1>
+    <button type="button" class="btn btn-outline-primary register" onclick="location.href='login/'">Login</button>
+{% endif %} {% endcomment %}
+
+
+
+{% endblock body %}

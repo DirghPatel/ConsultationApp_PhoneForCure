@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .patienthome__cover{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;    
+        margin: 20px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 40px -15px #000473; 
+        border: 1px solid white;
+    }
+    .cover__text1{
+        font-size: 18px;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        margin-bottom: 1px;
+    }
+    .cover__maintext{
+        font-size: 33px;
+        font-weight: 900;
+        font-family: 'Poppins', sans-serif;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #ff6b6b;
+        border-bottom-width: 3px;
+        padding-right: 0px;
+        width: fit-content;
+    }
+    .cover__button{
+        margin-top: 20px;
+        color: white;
+        border-color: #ff6b6b;
+        background-color: #ff6b6b;
+    }
+    .cover__button:hover{
+        border-color: darkblue;
+        box-shadow: 2px 2px 20px -10px #000473;
+    }
+    .cover__main{
+        width: 40%;
+        color: white;
+    }
+    .cover__image img{
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+    }
+    
+    .patienthome__darkblue{
+        position: absolute;
+        height: 205px;
+        background-color: #05386b;
+        width: 100%;
+    }
+    
+    .icon{
+        margin-bottom: 30px;
+    }
+    
+
+    .line-draw-animation {
+    position: relative;
+    }
+
+    .line-draw-animation::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    background: #ea110c;
+    right: 0;
+    top: 0;
+    -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+    }
+
+    .line-draw-animation::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    background: #ea110c;
+    left: 0;
+    bottom: 0;
+    -webkit-transition-delay: 0.6s;
+            transition-delay: 0.6s;
+    }
+
+    .line-draw-animation:hover::before {
+    width: 100%;
+    -webkit-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+    }
+
+    .line-draw-animation:hover::after {
+    width: 100%;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    }
+
+    .line-draw-animation:hover .line-draw-inner::before {
+    height: 100%;
+    -webkit-transition-delay: 0.6s;
+            transition-delay: 0.6s;
+    }
+
+    .line-draw-animation:hover .line-draw-inner::after {
+    height: 100%;
+    -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+    }
+
+    .line-draw-animation .line-draw-inner::after {
+    -webkit-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+    right: 0;
+    bottom: 0;
+    }
+
+    .line-draw-animation .line-draw-inner::before {
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    left: 0;
+    top: 0;
+    }
+
+    .line-draw-inner::before {
+    content: "";
+    width: 2px;
+    height: 0;
+    position: absolute;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    background: #ea110c;
+    }
+
+    .line-draw-inner::after {
+    content: "";
+    width: 2px;
+    height: 0;
+    position: absolute;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    background: #ea110c;
+    }
+
+    .featurecontainer{
+        position: relative;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0px;
+    }
+
+    .featurecontainer__cover{
+        margin: 5px;
+        padding: 20px;
+        width: 30%;
+        height: fit-content;
+        text-align: center;
+    }
+
+    .featurecontainer__innercover{
+        padding: 15px !important;
+    }
+
+    .line-draw-inner h4 a {
+        text-decoration: none;
+    }
+
+    @media (max-width: 1024px){
+        .featurecontainer__cover{
+            padding: 0px;
+        }
+    }
+
+    @media (min-width: 770px) and (max-width: 984px){
+        .patienthome__darkblue{
+            height:225px;
+        }
+    }
+
+
+    @media (max-width:425px){
+        .patienthome__darkblue{
+            height:200px;
+        }
+        .featurecontainer__cover{
+            width: 80% !important;
+        }
+    }
+    @media (max-width:375px){
+        .patienthome__darkblue{
+            height:240px;
+        }
+    }
+
+    @media (max-width:768px){
+        .cover__image{
+        display: none;
+        }
+        .cover__main{
+            width: fit-content;
+        }
+        .featurecontainer{
+            flex-direction: column;
+        }
+        .featurecontainer__cover{
+            width: 60%;
+        }
+    }
+    .activelogo{
+        color: cyan !important;
+    }
+{% endblock css %}
+{% block activelogo %} activelogo {% endblock activelogo %}
+{% block head %}
+    <script src="https://kit.fontawesome.com/bd6b65aa89.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css">
+{% endblock head %}
+{% block body %}    
+    <div class="patienthome__darkblue"></div>
+    <div class="patienthome__cover">
+        <div class="cover__main col-md-4 p-4 ">
+            <p class="cover__text1">No more doubts,</p>
+            <h1 class="cover__maintext"> Say Hello To Doctors </h1>
+            <p class="cover__text1">Consult With Professionals</p>
+            <button class="cover__button btn btn-outline-light" onclick="location.href='consultation'"> Consult Now!</button>
+        </div>
+        <div class="cover__image">
+            <img src="/static/images/consult.jpg" height='300px' width="auto">
+        </div>
+    </div>
+
+    <div class="featurecontainer">
+        <div class="featurecontainer__cover col-md-6 col-lg-4 mb-30">
+            <div class="featurecontainer__innercover bg-light p-5 line-draw-animation h-100">
+                <div class="line-draw-inner">
+                    <h4 class="my-3"><a href="consultation/">Consultation</a></h4>
+                    <p> Consult with our specialist. Choose the option between chat with them or do a video call for counsilting. </p>
+                </div>
+            </div>
+        </div>
+        <div class="featurecontainer__cover col-md-6 col-lg-4 mb-30">
+            <div class="featurecontainer__innercover bg-light p-5 line-draw-animation h-100">
+                <div class="line-draw-inner">
+                    <h4 class="my-3"><a href="appointment/">Book Appointment</a></h4>
+                    <p> Want to meet doctor near you? Conform your time with doctor and meet them personally to get medicins.</p>
+                </div>
+            </div>
+        </div>
+        <div class="featurecontainer__cover col-md-6 col-lg-4 mb-30">
+            <div class="featurecontainer__innercover bg-light p-5 line-draw-animation h-100">
+                <div class="line-draw-inner">
+                    <h4 class="my-3"><a href="#">Get Medicines</a></h4>
+                    <p> Want medicines for yourself? Go and consult with Pharmacists and get to know about medicines.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="patienthome__features pt-7 pb-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="info">
+                        <div class="icon icon-shape text-center">
+                            <i class="fas fa-comment-medical fa-4x"></i>
+                        </div>
+                        <h5 class="mt-2"> Response </h5>
+                        <p>Fastest Response By Doctors And Best Results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info">
+                        <div class="icon icon-shape text-center">
+                            <i class="fas fa-hospital-user fa-4x"></i>  
+                        </div>
+                        <h5 class="mt-2"> Doctors </h5>
+                        <p> Experienced & Specialist Doctor In Their Specific Field.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info">
+                        <div class="icon icon-shape text-center">
+                            <i class="fas fa-shield-alt fa-4x"></i>
+                        </div>
+                        <h5 class="mt-2">Security & Privacy</h5>
+                        <p>Private & Secure Consultation. All Chats Are Encrypted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info">
+                        <div class="icon icon-shape text-center">
+                            <i class="fas fa-handshake fa-4x"></i>
+                        </div>
+                        <h5 class="mt-2">Quality & Trust</h5>
+                        <p>Good Quality Medicins By Our Connected Pharmacists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}

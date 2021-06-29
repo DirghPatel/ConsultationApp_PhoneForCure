@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <style>
+    .contain{
+      position: relative;
+      display: flex;
+      width: 100vw;
+      justify-content: center;
+    }
+    .card{
+      position: relative;
+      display: flex;
+      width: 70%;
+      height: 60%;
+      max-width: 960px;
+      align-items: center;
+      justify-content: center  ;
+      flex-direction: row;
+      margin-top: 50px;
+      padding: 10px;
+    }
+    .image{
+      flex: 0.40;
+    }
+    .form{
+      flex: 0.60;
+      padding: 20px;
+      padding-bottom: 0px;
+    }
+    .inputfield{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .input{
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #9b9b9b;
+      outline: 0;
+      font-size: 1rem;
+      color: black;
+      padding: 7px 1px;
+      background: transparent;
+      transition: border-color 0.2s;
+      flex: 0.75;
+      font-weight: 300;
+    }
+    .input:hover{
+      background-color: #bbbbbb28;
+    }
+    .doctorname{
+      text-transform: capitalize;
+    }
+    .input:focus{
+      padding-bottom: 6px;  
+      font-weight: 300;
+      border-width: 2px;
+      border-image: linear-gradient(to right, #ff8dff,rgb(80, 60, 255),#38ef7d);
+      border-image-slice: 1;
+    } 
+      .label{
+        flex: 0.25;
+        font-weight: 500;
+      }
+
+      .buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .fordoctors{
+        text-align: center;
+        margin-bottom: 0px;
+        margin-top: 20px;
+        font-size: smaller;
+      }
+      .register{
+        margin: 0 20px;
+      }
+
+
+    @media (max-width: 768px) {
+      .image{
+        display: none;
+      }
+      .form{
+        flex: 1;
+        min-width: 100vw;
+        padding: 40px;
+      }
+      .card{
+        border: none;
+      }
+      .container{
+      justify-content: center !important;
+      }
+    }
+    @media (max-width: 375px){
+      .form{
+        padding: 10px;
+      }
+      
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <span class="navbar-brand mb-0 h1">
+          <img src="/static/images/logo.png" alt="" height="50px">
+        </span>
+      </div>
+    </nav>
+    <div class="contain">
+    <div class="card">
+      <div class="image">
+        <img src="/static/images/home_doctor.jpg" alt="" height="auto" width="100%">
+      </div>
+      <div class="form">
+        <form action="{{doctor.id}}" method="post" >
+            {% csrf_token %}
+            <div class="inputfield">
+                <label for="doctor" class="label">Doctor</label>
+                <input type="text" name="doctor" id="doctor" class="input doctorname" value='{{ doctor.name }}' readonly>
+            </div>
+            <div class="inputfield">
+                <label for="name" class="label">Name</label>
+                <input type="text" name="name" id="name" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label for="phone" class="label">Phone</label>
+                <input type="tel" name="phone" id="phone" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label for="email" class="label">Email</label>
+                <input type="email" name="email" id="email" class="input" value='{{ patient.email }}' readonly required>
+            </div>
+            <div class="inputfield">
+                <label for="time" class="label">Select Time</label>
+                <select name="time" id="time" class="input" required>
+                    <option value="8AM-10AM">8AM to 10AM</option>
+                    <option value="10AM-12PM">10AM to 12PM</option>
+                    <option value="1PM-4PM">1PM to 4PM</option>
+                    <option value="5PM-7PM">5PM to 7PM</option>
+                </select>
+            </div>
+            <div class="inputfield">
+                <label for="problem" class="label">Problem</label>
+                <textarea rows='3' columns='3' placeholder="Tell something about your problem" type="textarea" name="problem" id="problem" class="input" required></textarea>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="btn btn-outline-primary register">Book Appointment</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  
+  </body>
+</html>

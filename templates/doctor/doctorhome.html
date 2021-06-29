@@ -1,0 +1,353 @@
+{% extends 'basedoctor.html' %}
+
+{% block doctorhome %} active {% endblock doctorhome %}
+{% load static %}
+{% block css %}
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.colbtn{
+    border-color: #ff6b6b;
+    color: black;
+}
+.colbtn:hover{
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;  
+}
+.search:focus{
+    border-color: #137796;
+    box-shadow: 0px 0px 10px -2px #137796;
+}
+p{
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+.navbar{
+    background-color: #c8c8ff;
+}
+.navbar a{
+    color: black;
+}
+.navbar a:hover{
+    color: tomato;
+}
+.appointment__cover{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 40px -15px #000473;
+    border: 1px solid white;
+}
+.cover__text1{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 1px;
+}
+.cover__maintext{
+    font-size: 33px;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+    border-bottom-width: 3px;
+    padding-right: 0px;
+    width: fit-content;
+    letter-spacing: 1px;
+}
+.cover__button{
+    margin-top: 20px;
+    color: white;
+    border-color: #ff6b6b;
+    background-color: #ff6b6b;
+}
+.cover__button:hover{
+    border-color: #ff6b6b;
+    box-shadow: 2px 2px 20px -10px #000473;
+}
+.cover__main{
+    width: 40%;
+    color: black;
+}
+.cover__image img{
+    border-radius: 50%;
+}
+
+.appoimtment__violet{
+    position: absolute;
+    height: 225px;
+    background-color: #c8c8ff;
+    width: 100%;
+}
+
+.doctors__list{
+    position: relative;
+    display: flex;
+    height: fit-content;
+    margin: 20px;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.doctor__card{
+    position: relative;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    width: 42%;
+    padding: 10px;
+    border: 1px solid #ffc8c8;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+.doctor__image{
+    margin-right: 15px;
+    border-right: 2px solid darkblue;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+}
+.doctor__information{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.doctor__details{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: fit-content;
+    justify-content: center;
+    padding: 5px;
+}
+.doctor__name{
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-size: 25px;
+    border-bottom: 1px solid black;
+    width: fit-content;
+}
+.doctor__type{
+    font-size: small;
+    margin-bottom: 10px;
+}
+.doctor__experience{
+    margin-bottom: 10px;
+}
+.doctor__listheader{
+    font-weight: 800;
+}
+.doctor__details .doctor__feelist{
+    margin: 0px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+.doctor__appointment{
+    margin-top: auto;
+    border: 1px solid #c8c8ff;
+    padding: 7px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    background-color: #c8c8ff;
+    color: #57065d;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+.doctor__appointment:hover{
+    background-color: white;
+    color: darkblue;
+    border-color: #ffc8c8;
+}
+.doctor__hospitaladdress{
+    font-size: 0.9rem;
+}
+.doctor__hospital b{
+    font-weight: 600;
+}
+
+@media (max-width: 1024px){
+    .doctors__list{
+        flex-direction: column;
+    }
+
+    .doctor__card{
+        width:100%;
+        margin: 10px;
+        padding-left: 30px;
+        padding-right: 10px; 
+    }
+}
+@media (min-width: 770px) and (max-width: 925px){
+    .appoimtment__violet{
+        height:225px;
+    }
+    .cover__text1{
+        font-size: 18px;
+    }
+    .cover__maintext{
+        font-size: 26px;
+    }
+}
+@media (min-width: 770px) and (max-width: 974px){
+    .cover__maintext{
+        letter-spacing: 0px;
+    }
+}
+@media (max-width:768px){
+    .cover__image{
+        display: none;
+    }
+    .cover__main{
+        width: fit-content;
+    }
+    .appoimtment__violet{
+        height:240px;
+    }
+}
+@media (max-width:630px){
+    .doctors__list{
+        margin:0px;
+        padding: 3px;
+    }
+    .doctor__card{
+        padding: 10px;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width:505px){
+    .text__row{
+        display: flex;
+        flex-direction: column;
+    }
+    .text__column{
+        width: 250px;
+        text-align: center;
+    }
+}
+@media (max-width:425px){
+    .appoimtment__violet{
+        height:210px;
+    }
+    .cover__maintext{
+        font-size: 24px;
+    }
+    .cover__text1{
+        font-size: 16px;
+    }
+    .doctor__card{
+        padding: 2px;
+        margin: 5px 0px;
+    }
+    .doctor__details{
+        padding:0px;
+    }
+    .doctor__details .doctor__feelist{
+        letter-spacing: 0px;
+        padding: 0px;
+        padding-left:15px;
+
+    }
+    .doctor__appointment{
+        letter-spacing: 0px;
+        padding: 5px 15px;
+    }
+    .doctor__type{
+        margin-bottom: 5px;
+        font-size: x-small;
+    }
+    .doctor__name{
+        font-size:20px;
+    }
+    .doctor__hospital{
+        line-height: 20px;
+    }
+    .doctor__hospital b{
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .doctor__hospitaladdress{
+        font-size: 14px;
+        font-weight: 200;
+    }
+    .doctor__listheader{
+        font-weight: 400;
+    }
+    .doctor__feeonline{
+        font-weight: 200;
+        font-size: 13px;
+    }
+    .doctor__feeclinic{
+        font-weight: 200;
+        font-size: 13px;
+    }
+}
+
+@media (max-width:375px){
+    .doctor__card{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .doctor__appointment{
+        top: 0px;
+        width: 100%;
+        text-align: center;
+    }
+    .doctor__contact{
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (max-width:320px){
+    .appoimtment__violet{
+        height:215px;
+    }
+    .cover__text1{
+        font-size: 16px;
+    }
+    .cover__maintext{
+        font-size: 24px;
+        letter-spacing: 0px;
+    }
+}
+
+.appointmentactive{
+    color: #ff7272 !important;
+}
+{% endblock css %}
+
+{% block activeappointment %} appointmentactive {% endblock activeappointment %}
+
+{% block body %}
+{% comment %} {% if user.is_authenticated %} {% endcomment %}
+<div class="appoimtment__violet"></div>
+
+
+<div class="appointment__cover">
+    <div class="cover__image">
+        <img src="/static/images/consultation.jpg" height='300px' width="auto">
+    </div>
+    <div class="cover__main col-md-4 p-4 ">
+        <p class="cover__text1">Lorem, ipsum dolor.</p>
+        {% comment %} <h1 class="cover__maintext"> Want medicines, <br> Need consultation? </h1> {% endcomment %}
+        <h1 class="cover__maintext"> You're Welcome<br> Doctors. </h1>
+        <p class="cover__text1"> Virtual Way To Cure Diesease. </p>
+        <button class="cover__button btn btn-outline-light" onclick="location.href='/patient/consultation/'"> Consultation</button>
+        <button class="cover__button btn btn-outline-light" onclick="location.href='/patient/appointment/"> Appointment </button>
+    </div>
+</div>
+
+
+{% endblock body %}

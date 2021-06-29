@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+.navbar{
+    background-color: #19657d;
+}
+.navbar a:hover{
+    color: #ff7272;
+}
+.colbtn{
+    border-color: #ff7272;
+    color: white;
+}
+.colbtn:hover{
+    background-color: #ff7272;
+    border-color: #ff7272;  
+}
+.search:focus{
+    border-color: #ff7272;
+    box-shadow: 0px 0px 20px -2px #ff7272;
+}
+.consultation__cover{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 40px -15px #19657d;
+    border: 1px solid white;
+    margin-bottom: 8%;
+}
+.cover__text1{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 1px;
+}
+.cover__maintext{
+    font-size: 33px;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    border-bottom-width: 3px;
+    padding-right: 0px;
+    width: fit-content;
+    letter-spacing: 1px;
+}
+.cover__button{
+    margin-top: 20px;
+    color: white;
+    border-color: #ff7272;
+    background-color: #ff7272;
+}
+.cover__button:hover{
+    border-color: #19657d;
+    box-shadow: 2px 2px 20px -10px #19657d;
+}
+.cover__main{
+    width: 40%;
+    color: white;
+}
+.cover__image img{
+    border-radius: 50%;
+}
+
+.consultation__red{
+    position: absolute;
+    height: 225px;
+    background-color: #19657d;
+    width: 100%;
+}
+.slide{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.carousel-inner{
+    position: relative;
+    display: flex;
+    width: 50%;
+    text-align: center;
+}
+.carouser-item{
+    position: relative;
+}
+
+.carousel-indicators{
+    position: relative;
+}
+.name{
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+.comment{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.diesease__cover{
+    position: relative;
+    overflow: hidden;
+    display:flex;
+    height: 278px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12%;
+}
+.diesease__list{
+    display: flex;
+    overflow-x : hidden;
+    width: 85%;
+}
+.diesease__card{
+    display: flex;
+    flex-direction: column;
+    justify-content : center;
+    margin: 2px 10px;
+    box-shadow: 1px 1px 10px -5px black;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.diesease__image{
+    margin-bottom: 12px;      
+}
+
+.diesease__name{
+    font-size: 17px;
+    font-family: 'Baloo Da 2', cursive;
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.diesease__fees{
+    font-size: 15px;
+    font-family: 'Baloo Da 2', cursive;
+    margin-left: 10px;
+}
+.controlIcon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.controlbtn{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    border: none;
+    background: transparent;
+    height: 100%;
+}
+.leftSide{
+    left: 6.5%;
+    {% comment %} z-index: 10; {% endcomment %}
+}
+.rightSide{
+    right: 6.5%;
+    {% comment %} z-index: 10; {% endcomment %}
+}
+.btn_div{
+
+    padding: 5px;
+    background-color: darkblue;
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reviewheading{
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+.diesease__heading{
+    margin-left: 8%
+}
+.diesease__heading h5{
+    font-family: 'Baloo Da 2', cursive;
+    font-size: 34px;
+    margin: 0;
+}
+@media (max-width:1024px){
+    .diesease__list{
+        width: 90%; 
+    }
+    .leftSide{
+        left: 3.4%;
+    }
+    .rightSide{
+        right: 3.4%;
+    }
+}
+@media (min-width: 770px) and (max-width: 925px){
+    .consultation__red{
+        height:225px;
+    }
+    .cover__text1{
+        font-size: 18px;
+    }
+    .cover__maintext{
+        font-size: 26px;
+    }
+}
+@media (min-width: 770px) and (max-width: 974px){
+    .cover__maintext{
+        letter-spacing: 0px;
+    }
+}
+@media (max-width:768px){
+    .cover__image{
+        display: none;
+    }
+    .cover__main{
+        width: fit-content;
+    }
+    .consultation__red{
+        height:240px;
+    }
+    .comment{
+        font-size: 16px;
+    }
+    .carousel-inner{
+        width: 70%;
+    }
+    .diesease__list{
+        width: 100%;
+    }
+    .leftSide{
+        left: 0;
+    }
+    .rightSide{
+        right: 0;
+    }
+    .controlbtn{
+        position: relative;
+    }
+    .diesease__cover{
+        display: block;
+        height: 100%;
+    }
+    .diesease__card{
+        display: block;
+    }
+    .diesease__list{
+        margin-bottom: 30px;
+    }
+    .slidercontroldiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn_div{
+        margin: 0 10px;
+    }
+    .reviewheading{
+        font-size: 1.5rem;
+    }
+    .diesease__heading{
+        margin-left: 1%;
+        margin-bottom: 3%;
+            
+    }
+    .diesease__heading h5{
+        font-size: 26px;
+    }
+}
+
+@media (max-width:425px){
+    .consultation__red{
+        height:210px;
+    }
+    .cover__maintext{
+        font-size: 24px;
+    }
+    .cover__text1{
+        font-size: 16px;
+    }
+    
+    .rightSide{
+        right: 0;
+    }
+    .controlIcon{
+        width: 1rem;
+    }
+    .diesease__image img{
+        height: 78px;
+        width: auto;
+    }
+    .diesease__name{
+        font-size: 14px;
+    }
+    .diesease__fees{
+        font-size: 12px;
+    }
+    .diesease__card{
+        margin-left: 5px;
+    }
+    .diesease__list{
+        width: 100%;
+    }
+    .reviewheading{
+        font-size: 1.2rem;
+    }
+    .diesease__heading h5{
+        font-size: 20px;
+    }
+    .btn_div{
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width:375px){
+    .carousel-inner{
+        width: 90%;
+    }
+    .controls{
+        width: 5%;
+    }
+    .leftSide{
+        left: 0;
+    }
+    .rightSide{
+        right: 0;
+    }
+    .controlIcon{
+        width: 1rem;
+    }
+}
+@media (max-width:320px){
+    .consultation__red{
+        height:215px;
+    }
+    .cover__text1{
+        font-size: 16px;
+    }
+    .cover__maintext{
+        font-size: 24px;
+        letter-spacing: 0px;
+    }
+    
+    .comment{
+        font-size: 14px;
+    }
+    .leftSide{
+        left: 0;
+    }
+    .rightSide{
+        right: 0;
+    }
+    .controlIcon{
+        width: 1rem;
+    }
+    .diesease__heading h5{
+        font-size: 16px;
+    }
+}
+.consultactive{
+    color: #ff7272 !important;
+}
+{% endblock css %}
+
+{% block activeconsult %} consultactive {% endblock activeconsult %}
+
+{% block body %}
+{% load static %}
+
+<div class="consultation__red"></div>
+
+
+<div class="consultation__cover">
+    <div class="cover__image">
+        <img src="/static/images/consultation.jpg" height='300px' width="auto">
+    </div>
+    <div class="cover__main col-md-4 p-4 ">
+        <p class="cover__text1">No more doubts,</p>
+        <h1 class="cover__maintext"> Want medicines, <br> Book Consultation </h1>
+        <p class="cover__text1">Meet Professionals</p>
+        <button class="cover__button btn btn-outline-light" onclick="location.href='/patient/appointment/'"> Appointment</button>
+        <button class="cover__button btn btn-outline-light" onclick="location.href='#'"> Pharmacy </button>
+    </div>
+</div>
+
+<div class="diesease__heading">
+    <h5> Common Health Problems & Issues</h5>
+</div>
+<div class="diesease__cover">
+    <div class="diesease__list" id="diesease__list">
+        {% for problem in problems %}
+            <div class="diesease__card" onclick="location.href='{{problem.slug}}'">
+                <div class="diesease__image">
+                    <img src="{{path}}problem/{{problem.image}}" alt="{{problem.problem}}" height='180px' width="auto">
+                </div>
+                <h5 class="diesease__name">{{problem.problem}}</h5>
+                <p class="diesease__fees">{{problem.fees}}₹</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="slidercontroldiv">
+    <button id="slideLeft" class="controlbtn leftSide " type="button"  >
+        <div class="btn_div leftbtn"><span class="carousel-control-prev-icon controlIcon" aria-hidden="true" onclick="slideLeft"></span></div>
+    </button>
+    <button id="slideRight" class="controlbtn rightSide" type="button"  >
+        <div class="btn_div rightbtn"><span class="carousel-control-next-icon controlIcon" aria-hidden="true" onclick="slideRight"></span></div>
+    </button>
+    </div>
+</div>
+
+<div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <h5 class="reviewheading"> Feedback & Reviews From Users </h5>   
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <p class="comment" >Very easy to book,maintain history. Hassle free from older versions of booking appointment via telephone. Thanks PhoneForCure for making it simple.</p>
+            <h5 class="name">Raman Patil</h5>
+        </div>
+        <div class="carousel-item">
+            <p class="comment">Most Helping app. Well thought out about appointment , consultation. Also, Doctor's Feedback mechanism is good and describes basics in a good way.</p>
+            <h5 class="name"> Chandra Patel</h5>
+        </div>
+        <div class="carousel-item">
+            <p class="comment">Very helpful. Far easier than doing same things on computer. Allows quick and easy search with speedy booking. Even maintains history of doctors visited.</p>
+            <h5 class="name"> Raghuvir Jadeja</h5>
+        </div>
+    </div>
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <button class="carousel-control-prev controls" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next controls" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+
+{% endblock body %}
+{% block head %}
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $(".leftbtn").click(function(){  
+                event.preventDefault();
+                var scrollLeft = $('.diesease__list').scrollLeft()
+                var width = $('.diesease__card').width() + 23
+                console.log(scrollLeft)
+                $('.diesease__list').animate({
+                    scrollLeft: scrollLeft - width
+                }, 450);
+            });
+            $(".rightbtn").click(function(){
+
+                event.preventDefault();
+                var scrollLeft = $('.diesease__list').scrollLeft()
+                var width = $('.diesease__card').width() + 23
+                $('.diesease__list').animate({
+                    scrollLeft: scrollLeft + width
+                },450 );
+            });
+        });
+            
+    </script>
+{% endblock head %}
